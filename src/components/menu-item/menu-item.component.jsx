@@ -1,8 +1,16 @@
 import React from 'react';
+/*
+this is a higher order funstion  that takes a any component and returns a new modified component with access
+to location, map and history props
+*/
+import {withRouter} from 'react-router-dom';
 import './menu-item.styles.scss';
 
-const MenuItem = ({title, imageUrl, size}) => (
-    <div className={`${size} menu-item`}>
+const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
+    <div className=
+        {`${size} menu-item`}
+        onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
         <div
             className="background-image"
             style={{
@@ -16,4 +24,5 @@ const MenuItem = ({title, imageUrl, size}) => (
     </div>
 );
 
-export default MenuItem;
+//using the withRouter function now gives us access to history props
+export default withRouter(MenuItem);
