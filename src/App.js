@@ -39,7 +39,6 @@ class App extends React.Component {
               ...onSnapshot.data()
             }
           });
-          console.log(this.state)
         });
       }
       // if the user onject is null
